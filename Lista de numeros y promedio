@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+float calcularPromedio(const vector<float>& numeros) {
+    float suma = 0;
+    for (float num : numeros) {
+        suma += num;
+    }
+    return numeros.empty() ? 0 : suma / numeros.size();
+}
+int main() {
+    int cantidad;
+    vector<float> numeros;
+
+    cout << "Ingrese la cantidad de números: ";
+    cin >> cantidad;
+
+    if (cantidad <= 0) {
+        cout << "La cantidad debe ser mayor a cero." << endl;
+        return 1;
+    }
+    cout << "Ingrese los números:" << endl;
+    for (int i = 0; i < cantidad; i++) {
+        float numero;
+        cout << "Número " << i + 1 << ": ";
+        cin >> numero;
+        numeros.push_back(numero);
+    }
+    float promedio = calcularPromedio(numeros);
+    cout << "El promedio de los números ingresados es: " << promedio << endl;
+
+    return 0;
+}
